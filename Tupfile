@@ -1,0 +1,5 @@
+import CXX=clang++
+
+.gitignore
+: foreach src/*.cc |> ^c %f^ $(CXX) -std=c++23 -Isrc -Wall -O -c -o %o %f |> src/%B.o
+: src/*.o |> $(CXX) -o %o %f |> main
